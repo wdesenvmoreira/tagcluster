@@ -12,3 +12,14 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+model Conta {
+  id        String   @id @default(uuid())
+  nome      String
+  email     String   @unique
+  telefone  String?
+  ativo     Boolean  @default(true)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
